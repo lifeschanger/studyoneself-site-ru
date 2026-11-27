@@ -1,2 +1,7 @@
-# studyoneself-site-ru
-Русская визитка Study Oneself
+# studyoneself.ru
+
+Русская страница-визитка Study Oneself. Один HTML, без сборки.
+
+Индексация закрыта (`noindex`), пока домен `studyoneself.ru` не привязан. Страница публикуется через GitHub Pages. Домен подключает Владислав на reg.ru.
+
+Светлый макет в этот репозиторий не входит.

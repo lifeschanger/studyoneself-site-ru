@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Медитация для начинающих. Осознанный образ жизни. Гармония с окружающим миром.">
+  <title>Study Oneself</title>
+  <style>
+    @font-face {
+      font-family: Lato;
+      src: url("assets/Lato-Regular.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --paper: #000000;
+      --ink: #ffffff;
+      --sun: #ef4136;
+      --line: #ffffff;
+      --on-photo: #ffffff;
+      --scrim: rgba(0, 0, 0, 0.56);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Lato, sans-serif;
+      font-size: 1rem;
+      line-height: 1.5;
+      overscroll-behavior-y: contain;
+    }
+
+    .page {
+      max-width: 27rem;
+      margin: 0 auto;
+      min-height: 100dvh;
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    .vh {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .skip {
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      z-index: 2;
+      padding: 0.75rem 1rem;
+      background: var(--paper);
+      color: var(--ink);
+      transform: translateY(-12rem);
+    }
+
+    .skip:focus { transform: none; }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    a:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 3px;
+    }
+
+    .social a,
+    .mail a { transition: opacity 120ms ease-out; }
+
+    .social a:active,
+    .mail a:active { opacity: 0.72; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .social a,
+      .mail a { transition: none; }
+    }
+
+    h1, h2, h3 { font-weight: 400; text-wrap: balance; }
+
+    h1 { margin: 0; }
+
+    h1 img {
+      display: block;
+      width: min(86%, 19rem);
+      height: auto;
+      margin: 0 auto;
+    }
+
+    h2 { margin: 0 0 1rem; font-size: 1.5rem; line-height: 1.3; }
+    h3 { margin: 0 0 0.5rem; font-size: 1.25rem; line-height: 1.3; }
+
+    .hero {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100dvh;
+      padding:
+        max(2rem, env(safe-area-inset-top))
+        1.5rem
+        max(2rem, env(safe-area-inset-bottom));
+      background: #000000;
+      color: var(--on-photo);
+      text-align: center;
+    }
+
+    .hero-photo,
+    .hero-scrim {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-photo {
+      object-fit: cover;
+      object-position: center 42%;
+    }
+
+    .hero-scrim { background: var(--scrim); }
+
+    .hero-inner { position: relative; z-index: 1; width: 100%; }
+
+    .lede {
+      margin: 1.75rem 0 0;
+      font-size: 1.125rem;
+      line-height: 1.5;
+    }
+
+    .block { padding: 3rem 1.5rem; }
+
+    .about p { margin: 0; }
+    .about p + p { margin-top: 1rem; }
+
+    .portrait {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .person .block { padding-top: 1.5rem; }
+    .person p { margin: 0; }
+
+    .topics {
+      padding: 0 1.5rem 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .topics article {
+      margin: 0;
+      padding: 1.25rem;
+      border: 1px solid var(--line);
+    }
+
+    .topics p { margin: 0; }
+
+    .haiku {
+      position: relative;
+      display: flex;
+      align-items: center;
+      min-height: 22rem;
+      background: #000000;
+      color: var(--on-photo);
+    }
+
+    .haiku-photo,
+    .haiku-scrim {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .haiku-photo {
+      object-fit: cover;
+      object-position: 68% 62%;
+    }
+
+    .haiku-scrim { background: rgba(0, 0, 0, 0.48); }
+
+    .haiku blockquote {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      margin: 0;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+
+    .haiku p {
+      margin: 0;
+      font-size: 1.375rem;
+      line-height: 1.45;
+    }
+
+    .haiku footer { margin-top: 1rem; font-size: 1rem; }
+    .haiku cite { font-style: normal; }
+
+    .social { padding: 3rem 1.5rem; }
+
+    .note { margin: 0 0 1.5rem; }
+
+    .social ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .social a {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 4.5rem;
+      padding: 1rem;
+      border: 1px solid var(--line);
+      background: var(--paper);
+    }
+
+    .social a.ig::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 3px;
+      background: var(--sun);
+    }
+
+    .meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      min-width: 0;
+    }
+
+    .name { font-size: 1.125rem; }
+    .addr { overflow-wrap: anywhere; }
+
+    .social img {
+      flex: none;
+      width: 6rem;
+      height: 6rem;
+      background: #ffffff;
+    }
+
+    .jobs { padding: 0 1.5rem 3rem; }
+    .jobs .lead { margin: 0 0 1.5rem; }
+    .jobs article + article { margin-top: 1.5rem; }
+    .jobs article p { margin: 0; }
+
+    .mail { margin: 1.5rem 0 0; }
+    .mail a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 2.75rem;
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
+
+    .foot {
+      padding: 3rem 1.5rem max(2rem, env(safe-area-inset-bottom));
+      text-align: center;
+    }
+
+    .foot img {
+      width: 4.5rem;
+      height: auto;
+    }
+
+    .foot p { margin: 1rem 0 0; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <a class="skip" href="#main">К содержанию</a>
+
+    <header class="hero">
+      <img class="hero-photo" src="assets/hero-fuji.jpg" alt="" width="928" height="2486" fetchpriority="high">
+      <div class="hero-scrim" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <h1>
+          <img src="assets/logo-horizontal-light.svg" alt="Study Oneself" width="3161" height="1470">
+        </h1>
+        <p class="lede">
+          Медитация для начинающих.<br>
+          Осознанный образ жизни.<br>
+          Гармония с окружающим миром.
+        </p>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="about block" aria-labelledby="about-title">
+        <h2 id="about-title" class="vh">О проекте</h2>
+        <p>Study Oneself — медитация для начинающих и осознанный образ жизни.</p>
+        <p>Реальные практические советы по изменению себя.</p>
+        <p>Сон, спокойствие, привычки. Гармония с окружающим миром.</p>
+      </section>
+
+      <section class="person" aria-labelledby="person-title">
+        <img class="portrait" src="assets/vladislav.jpg" alt="Портрет Владислава" width="748" height="926" loading="lazy">
+        <div class="block">
+          <h2 id="person-title">Владислав</h2>
+          <p>Я веду Study Oneself и пробую то, о чём рассказываю. Объясняю так, как сказал бы другу: что делать, где обычно сбиваются, и что я сам заметил.</p>
+        </div>
+      </section>
+
+      <section class="topics" aria-labelledby="topics-title">
+        <h2 id="topics-title" class="vh">Темы</h2>
+        <article>
+          <h3>Медитация для начинающих</h3>
+          <p>Как начать заниматься самому.</p>
+        </article>
+        <article>
+          <h3>Осознанный образ жизни</h3>
+          <p>Сон, спокойствие, привычки.</p>
+        </article>
+        <article>
+          <h3>Изменение себя</h3>
+          <p>Реальные практические советы. Гармония с окружающим миром.</p>
+        </article>
+      </section>
+
+      <section class="haiku" aria-labelledby="haiku-title">
+        <h2 id="haiku-title" class="vh">Хайку</h2>
+        <img class="haiku-photo" src="assets/boat.jpg" alt="" width="1600" height="1130" loading="lazy">
+        <div class="haiku-scrim" aria-hidden="true"></div>
+        <blockquote>
+          <p>О улитка!<br>Взбирайся на Фудзи —<br>но медленно, медленно.</p>
+          <footer><cite>Кобаяси Исса</cite></footer>
+        </blockquote>
+      </section>
+
+      <nav class="social" aria-labelledby="social-title">
+        <h2 id="social-title" class="vh">Соцсети</h2>
+        <p class="note">Аккаунты уже наши. Роликов пока нет.</p>
+        <ul>
+          <li>
+            <a class="ig" href="https://www.instagram.com/studyoneself.ru">
+              <span class="meta">
+                <span class="name">Instagram</span>
+                <span class="addr">@studyoneself.ru</span>
+              </span>
+              <img src="assets/qr-instagram.svg" alt="" width="96" height="96" loading="lazy">
+            </a>
+          </li>
+          <li>
+            <a href="https://t.me/studyoneself_ru">
+              <span class="meta">
+                <span class="name">Telegram</span>
+                <span class="addr">@studyoneself_ru</span>
+              </span>
+              <img src="assets/qr-telegram.svg" alt="" width="96" height="96" loading="lazy">
+            </a>
+          </li>
+          <li>
+            <a href="https://vk.com/studyoneself">
+              <span class="meta">
+                <span class="name">ВКонтакте</span>
+                <span class="addr">vk.com/studyoneself</span>
+              </span>
+              <img src="assets/qr-vk.svg" alt="" width="96" height="96" loading="lazy">
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/@studyoneself_ru">
+              <span class="meta">
+                <span class="name">YouTube</span>
+                <span class="addr">@studyoneself_ru</span>
+              </span>
+              <img src="assets/qr-youtube.svg" alt="" width="96" height="96" loading="lazy">
+            </a>
+          </li>
+          <li>
+            <a href="https://www.tiktok.com/@studyoneself.ru">
+              <span class="meta">
+                <span class="name">TikTok</span>
+                <span class="addr">@studyoneself.ru</span>
+              </span>
+              <img src="assets/qr-tiktok.svg" alt="" width="96" height="96" loading="lazy">
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <section class="jobs" aria-labelledby="jobs-title">
+        <h2 id="jobs-title">Нужны люди</h2>
+        <p class="lead">Напиши, если хочешь делать это с нами. Для работы даём доступ к сильным ИИ-агентам и учим ими пользоваться.</p>
+        <article>
+          <h3>SMM</h3>
+          <p>Ведёшь русские профили Study Oneself: выпускаешь ролики, отвечаешь людям, держишь шапку и описания в одном тоне. Пишешь просто, без эзотерики и без давления. Опыт медитации не обязателен. Нужны аккуратность и привычка доводить запись до публикации.</p>
+        </article>
+        <article>
+          <h3>Креатор</h3>
+          <p>Придумываешь и собираешь сами ролики, обложки и короткие тексты. Это не SMM: SMM выпускает и говорит с людьми, креатор делает материал. Можно откликнуться на одну роль или на обе.</p>
+        </article>
+        <article>
+          <h3>Разработчик мобильных приложений</h3>
+          <p>Dart и Flutter.</p>
+        </article>
+        <p class="mail"><a href="mailto:vannov@gmail.com">vannov@gmail.com</a></p>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <img src="assets/logo-symbol-light.svg" alt="" width="1200" height="1155">
+      <p>Study Oneself</p>
+    </footer>
+  </div>
+</body>
+</html>
