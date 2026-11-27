@@ -300,11 +300,22 @@
     .foot p { margin: 1rem 0 0; }
 
     @media (min-width: 48rem) {
+      .hero-stage { container-type: inline-size; }
+
+      h1 img { width: min(86%, clamp(19rem, 46cqi, 28rem)); }
+
+      .lede { font-size: clamp(1.125rem, 0.45rem + 2.1cqi, 1.85rem); }
+
       .about.block {
-        max-width: 40rem;
+        container-type: inline-size;
+        max-width: min(46rem, 92%);
         margin-inline: auto;
         padding-inline: 2rem;
+        padding-block: clamp(3rem, 6cqi, 5rem);
       }
+
+      .about p { font-size: clamp(1.125rem, 0.4rem + 2.2cqi, 1.75rem); }
+      .about p + p { margin-top: 0.7em; }
 
       .person {
         display: grid;
@@ -357,7 +368,7 @@
     @media (min-width: 64rem) {
       .hero {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: minmax(0, 1fr) min(42rem, 46vw) minmax(0, 1fr);
         min-height: 100dvh;
       }
 
@@ -365,6 +376,21 @@
         min-height: 100dvh;
         background: #000000;
       }
+
+      h1 img { width: min(92%, 36rem); }
+
+      .lede {
+        font-size: clamp(1.35rem, 0.35rem + 4.8cqi, 2.75rem);
+        line-height: 1.35;
+        margin-top: clamp(1.75rem, 4cqi, 3rem);
+      }
+
+      .about.block {
+        max-width: min(76rem, 80vw);
+        padding-block: clamp(4rem, 6vw, 7rem);
+      }
+
+      .about p { font-size: clamp(1.5rem, 0.55rem + 2.6cqi, 3rem); }
 
       .hero-photo,
       .hero-scrim { display: none; }
