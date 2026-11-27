@@ -325,12 +325,26 @@
         margin-inline: auto;
       }
 
+      .person {
+        padding-bottom: clamp(2.75rem, 4vw, 4.5rem);
+      }
+
       .person .block {
+        container-type: inline-size;
         display: flex;
         flex-direction: column;
         justify-content: center;
         max-width: 36rem;
         padding: 3rem 3rem 3rem 2.5rem;
+      }
+
+      .person h2 {
+        font-size: clamp(1.85rem, 0.55rem + 5cqi, 2.5rem);
+      }
+
+      .person p {
+        font-size: clamp(1.2rem, 0.35rem + 3.4cqi, 1.65rem);
+        line-height: 1.45;
       }
 
       .topics {
@@ -383,6 +397,58 @@
         font-size: clamp(1.35rem, 0.35rem + 4.8cqi, 2.75rem);
         line-height: 1.35;
         margin-top: clamp(1.75rem, 4cqi, 3rem);
+      }
+
+      .person h2 {
+        font-size: clamp(2.25rem, 0.3rem + 8cqi, 3.35rem);
+      }
+
+      .person p {
+        font-size: clamp(1.5rem, 0.2rem + 6cqi, 2.2rem);
+        line-height: 1.4;
+      }
+
+      .topics h3 {
+        font-size: clamp(1.4rem, 0.55rem + 1.15vw, 1.9rem);
+      }
+
+      .topics p {
+        font-size: clamp(1.125rem, 0.45rem + 0.9vw, 1.5rem);
+        line-height: 1.45;
+      }
+
+      .haiku p {
+        font-size: clamp(1.65rem, 0.55rem + 1.7vw, 2.45rem);
+      }
+
+      .haiku footer {
+        font-size: clamp(1.05rem, 0.4rem + 0.95vw, 1.45rem);
+      }
+
+      .social .note {
+        font-size: clamp(1.125rem, 0.45rem + 0.85vw, 1.45rem);
+      }
+
+      .social .name {
+        font-size: clamp(1.3rem, 0.45rem + 1vw, 1.7rem);
+      }
+
+      .jobs h2 {
+        font-size: clamp(1.75rem, 1.1rem + 1.2vw, 2.5rem);
+      }
+
+      .jobs .lead {
+        font-size: clamp(1.2rem, 0.85rem + 1vw, 1.85rem);
+        line-height: 1.45;
+      }
+
+      .jobs h3 {
+        font-size: 1.5rem;
+      }
+
+      .jobs article p {
+        font-size: 1.125rem;
+        line-height: 1.5;
       }
 
       .about.block {
