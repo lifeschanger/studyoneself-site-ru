@@ -331,7 +331,7 @@
         padding: 0 2rem 4rem;
       }
 
-      .haiku { min-height: 70vh; }
+      .haiku { min-height: 70vh; justify-content: center; }
       .haiku blockquote { width: min(100%, 36rem); }
 
       .social {
@@ -397,6 +397,11 @@
       .jobs h2,
       .jobs .lead,
       .jobs .mail { grid-column: 1 / -1; }
+
+      .jobs h2,
+      .jobs .lead { margin-bottom: 0; }
+
+      .jobs .mail { margin-top: 0; }
 
       .jobs article + article { margin-top: 0; }
     }
